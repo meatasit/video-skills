@@ -1,0 +1,1 @@
+LUT สำเร็จรูปถูกตัดออกจาก repo (26 MB) — สร้างใหม่ด้วย `ruby regenerate_luts.rb` ในโฟลเดอร์นี้ หรือ `ruby generate_lut.rb <preset> --emit out.cube` ทีละตัว; งาน colorist ของเราใช้ match_grade.py / sample_clip.py ซึ่งไม่ต้องใช้ไฟล์พวกนี้

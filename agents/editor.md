@@ -15,7 +15,7 @@ tools: Bash, Read, Write, Edit, Glob
 2. ต่อช่วงใน shotlist: เปิดไฟล์ที่ระบุ ดู frame รอบจุดที่ผู้กำกับแนะ เลือก in/out จริง (หลีกเลี่ยงตัดกลางการแพน, เริ่มหลังกล้องนิ่ง 0.3 วิ)
 3. เขียน `edl.md`: ลำดับ · ไฟล์ · in · out · duration · transition (cut/dissolve 0.3s) · note
 4. รวมความยาว เทียบเป้าหมาย ถ้าเกิน ±15% ให้เสนอว่าจะตัดช่วงไหน แทนที่จะตัดเอง
-5. render `edit/preview_vN.mp4` 1280x720, audio fade 30ms ทุกรอยต่อ, loudness -16 LUFS
+5. render `edit/preview_vN.mp4` 1280x720 (ไม่ใส่ LUT); final render ขั้นหลัง ให้อ่าน `color/lut-map.md` ถ้ามี แล้วใส่ `lut3d` ต่อคลิปก่อน concat, audio fade 30ms ทุกรอยต่อ, loudness -16 LUFS
 6. self-check: extract frame ที่ทุกจุดตัด ±1 เฟรม ดูว่าไม่มีภาพดำ/ซ้ำ แล้ว ffprobe ยืนยัน duration
 
 ## รายงานกลับ

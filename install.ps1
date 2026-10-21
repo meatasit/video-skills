@@ -13,6 +13,7 @@ Get-ChildItem (Join-Path $Here "agents") -Filter *.md | Where-Object { $_.Name -
   Copy-Item $_.FullName (Join-Path $Agents $_.Name) -Force
   Write-Host "agent   $($_.Name)"
 }
+if (Get-Command pip -ErrorAction SilentlyContinue) { pip install -q Pillow numpy PyYAML; pip install -q -e (Join-Path $Here "skills\color-grading-skill") } else { Write-Warning "pip not found - colorist deps skipped" }
 if (Get-Command npx -ErrorAction SilentlyContinue) { npx -y skills add remotion-dev/skills --agent claude-code } else { Write-Host "skip remotion (no npx)" }
 foreach ($t in "ffmpeg","ffprobe","python") { if (-not (Get-Command $t -ErrorAction SilentlyContinue)) { Write-Warning "$t not found" } }
 Write-Host "done - restart Claude Code"

@@ -1,6 +1,6 @@
 ---
 name: director
-description: ผู้กำกับ (orchestrator) สำหรับตัดคลิปท่องเที่ยวจาก footage ดิบ — รับ brief, สั่ง sub-agent ตามบทบาท (ingest, editor, subtitler, graphics, cg), คุม approval gate และรวม EDL ให้เป็นคลิปสุดท้าย Use when the user says "ตัดคลิปทริป", "ทำวิดีโอจาก footage", "เริ่มโปรเจกต์วิดีโอ", or invokes /director.
+description: ผู้กำกับ (orchestrator) สำหรับตัดคลิปท่องเที่ยวจาก footage ดิบ — รับ brief, สั่ง sub-agent ตามบทบาท (ingest, editor, subtitler, colorist, graphics, cg), คุม approval gate และรวม EDL ให้เป็นคลิปสุดท้าย Use when the user says "ตัดคลิปทริป", "ทำวิดีโอจาก footage", "เริ่มโปรเจกต์วิดีโอ", or invokes /director.
 ---
 
 # Director — ผู้กำกับคลิปท่องเที่ยว
@@ -25,6 +25,7 @@ projects/<trip>/
   raw/              ← footage ที่ copy มาจาก NAS (เฉพาะที่เลือก)
   graphics/         ← PNG/SVG จาก Claude Design
   subs/             ← .srt
+  color/            ← LUT ต่อคลิป + contact sheet + lut-map.md
   edit/             ← preview_*.mp4, final.mp4
   PROGRESS.md       ← สถานะ + log การตัดสินใจ
 ```
@@ -50,6 +51,10 @@ projects/<trip>/
 มอบ `agents/editor.md` ทำ EDL ละเอียด (in/out เป็น hh:mm:ss.ms) จาก shotlist แล้ว render `edit/preview_v1.mp4` ที่ 720p ด้วย `ffmpeg-skill`
 ผู้กำกับดู preview เอง (extract frame ทุกจุดตัด) ก่อนส่งผู้ใช้ — ถ้าเจอ jump cut แปลก, ภาพดำ, เสียง pop ให้ส่งกลับ editor ก่อน
 **หยุดรอ approve**
+
+### 3b. Color (หลัง GATE 2)
+มอบ `agents/colorist.md` ทำให้คลิปจากหลายกล้องโทนใกล้กัน: normalize HDR→Rec.709 → match ต่อ scene ไปยังคลิปอ้างอิง → contact sheet ให้ผู้กำกับดู → `color/lut-map.md`
+editor ใส่ LUT ตาม lut-map ตอน render final (ขั้น 6) — preview ขั้น 3 ไม่ต้องใส่
 
 ### 4. Subtitle (ถ้ามีเสียงพูด)
 มอบ `agents/subtitler.md` → `subs/<trip>.srt` ภาษาไทย ตรวจชื่อสถานที่ด้วยตัวเอง

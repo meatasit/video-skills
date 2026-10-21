@@ -12,7 +12,7 @@ model: sonnet
 
 ## ขั้นตอน
 1. list ไฟล์วิดีโอทุกนามสกุล (.mp4 .mov .mts .insv .lrv ข้าม) จัดกลุ่มตามโฟลเดอร์วัน
-2. ต่อไฟล์: `ffprobe` → duration, resolution, fps, codec, audio channels
+2. ต่อไฟล์: `ffprobe` → duration, resolution, fps, codec, audio channels, **color_transfer / color_primaries / color_space** (HLG, PQ, bt709 — colorist ใช้จัดกลุ่ม)
 3. ตรวจเสียงพูด: วัด loudness ของช่วง 10 วิแรก ถ้า < -40 LUFS ให้ถือว่า "ไม่มีเสียงพูด"
 4. scene detect threshold 0.3 → นับจำนวน scene
 5. sample 3 frames (10%, 50%, 90%) ต่อไฟล์ ดูแล้วให้คะแนน 1–5 (ความนิ่ง, แสง, ความน่าสนใจ) + note 1 บรรทัด
