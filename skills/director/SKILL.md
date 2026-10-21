@@ -26,6 +26,8 @@ projects/<trip>/
   graphics/         ← PNG/SVG จาก Claude Design
   subs/             ← .srt
   color/            ← LUT ต่อคลิป + contact sheet + lut-map.md
+  music/            ← mood-timeline.md, plan.md
+  audio/            ← เพลงที่เลือก (copy), sfx/, credits.md
   edit/             ← preview_*.mp4, final.mp4
   PROGRESS.md       ← สถานะ + log การตัดสินใจ
 ```
@@ -46,6 +48,11 @@ projects/<trip>/
 - ต่อช่วง: คลิปที่เลือกจาก inventory (ชื่อไฟล์ + ช่วงเวลาคร่าวๆ) + เหตุผล
 - รวมความยาวประมาณการ ต้องใกล้เป้าหมาย ±15%
 **หยุดรอ approve** แก้ตามที่ผู้ใช้บอกจนกว่าจะ OK แล้วค่อย copy เฉพาะไฟล์ที่เลือกไป `raw/`
+
+### 2b. Music (หลัง GATE 1, ก่อน edit)
+โหลด skill `music-supervisor`: เขียน `music/mood-timeline.md` จาก shotlist → เสนอเพลง 3 ตัวเลือกต่อช่วงจากคลัง (`D:\music-library` หรือที่ brief ระบุ) → **รอผู้ใช้เลือก** → `music/plan.md`
+ถ้าคลังว่าง ให้บอกผู้ใช้ว่าขาด mood อะไรพร้อมคำค้นสำหรับ YouTube Audio Library แล้วเดินงานต่อโดยไม่มีเพลง (ใส่ทีหลังได้)
+editor ใช้ plan.md ตอน render: เลื่อนเพลงให้ drop ตรง cut ที่ระบุ ไม่ใช่เริ่มที่ 0:00
 
 ### 3. Edit → `edl.md` [GATE 2]
 มอบ `agents/editor.md` ทำ EDL ละเอียด (in/out เป็น hh:mm:ss.ms) จาก shotlist แล้ว render `edit/preview_v1.mp4` ที่ 720p ด้วย `ffmpeg-skill`

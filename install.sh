@@ -9,7 +9,7 @@ for f in "$HERE"/agents/*.md; do
   n=$(basename "$f"); [[ "$n" == upstream-* ]] && continue
   ln -sf "$f" ~/.claude/agents/"$n"; echo "agent   $n"
 done
-command -v pip3 >/dev/null && pip3 install -q Pillow numpy PyYAML && pip3 install -q -e "$HERE/skills/color-grading-skill" || echo "WARN: pip3 not found - colorist deps skipped"
+command -v pip3 >/dev/null && pip3 install -q Pillow numpy PyYAML librosa soundfile && pip3 install -q -e "$HERE/skills/color-grading-skill" || echo "WARN: pip3 not found - colorist deps skipped"
 command -v npx >/dev/null && npx -y skills add remotion-dev/skills --agent claude-code || echo "skip remotion (no npx)"
 for t in ffmpeg ffprobe python3; do command -v $t >/dev/null || echo "WARN: $t not found"; done
 echo "done — restart Claude Code"

@@ -9,6 +9,7 @@ Catalog ฉบับเต็มที่ใช้คัดเลือก: [Vid
 ```
 skills/
   director/              ผู้กำกับ — เรียก sub-agent, คุม gate, รวม EDL (เขียนเอง)
+  music-supervisor/      เลือกเพลงตามอารมณ์คลิป — catalog คลังเพลง + mood timeline + จับคู่ (เขียนเอง)
   ffmpeg-skill/          42 เครื่องมือ ffmpeg + MCP (kajisho5)
   video-editing-skill/   trim, jump cut, caption 3 สไตล์ (6missedcalls)
   whisper-transcription/ ถอดเสียง → srt/vtt (guia-matthieu/clawfu-skills)
@@ -31,6 +32,7 @@ Remotion skills (`remotion-dev/skills`) ไม่ได้ vendor ไว้เ�
 ## ติดตั้ง
 
 ต้องมี: FFmpeg + ffprobe, Python 3.10+, Node 18+
+สำหรับ `music-supervisor` เพิ่ม: `pip install librosa soundfile numpy` และคลังเพลงส่วนตัวที่ `D:\music-library` (โหลดจาก YouTube Audio Library / Pixabay) — รัน `python skills\music-supervisor\scripts\catalog_music.py D:\music-library` ครั้งแรก
 สำหรับ agent `colorist` เพิ่ม: `pip install Pillow numpy PyYAML` และ Ruby 2.7+ (เฉพาะถ้าจะสร้าง preset LUT); `pip install -e skills/color-grading-skill`
 สำหรับ agent `cg` เพิ่ม: Blender 4.2+ (ทดสอบบน 5.2 LTS), `uv`, Blender MCP (`uvx mcp-for-blender install-addon` แล้ว `claude mcp add --scope user blender -- uvx mcp-for-blender`) และ skill `animation-direction` (clone จาก DisturbedMediaGroup/claude-animation-skill) + plugin `3d-design` (`claude plugin marketplace add https://github.com/DavinciDreams/Agent-Team-Plugins` แล้ว `claude plugin install 3d-design@atlas-agents` — README ต้นทางเขียน `atlas-agents/plugins` ซึ่งไม่มีอยู่จริง)
 
