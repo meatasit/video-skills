@@ -8,6 +8,7 @@
 | skills/video-production | https://github.com/travisjneuman/.claude (skills/video-production) | 7a2b5ca (2026-10-19) | MIT |
 | skills/color-grade-ai | https://github.com/isaacrowntree/color-grade-ai | a6eef94 (2026-08-03) | MIT |
 | skills/color-grading-skill | https://github.com/kajisho5/color-grading-skill | 6c45c9f (2026-10-17) | MIT |
+| skills/sfx-sources | https://github.com/sxhzju/sfx (skills/sfx-sources) | 6419f42 (2026-10-14) | MIT |
 | agents/upstream-agent-video-producer.md | https://github.com/travisjneuman/.claude (skills/agent-video-producer) | 7a2b5ca | MIT |
 
 ไม่ vendor (ติดตั้งผ่าน `npx skills add` แทน):
@@ -16,3 +17,5 @@
 จาก ffmpeg-skill vendor เฉพาะ SKILL.md, scripts/, references/, mcp/, bin/, templates/ (ตัด tests/, demos/, evals/, brand/ ออก)
 
 จาก color-grade-ai ตัด test_*, correction_luts/ (26 MB, regenerate ได้) ออก; จาก color-grading-skill ตัด tests/, brand/ ออก
+
+ไม่ vendor (ติดตั้งผ่าน installer flag): https://github.com/ai-infra-academy/SoundDirector — 220 MB, โค้ด MIT แต่ license ไฟล์เสียงไม่ระบุ

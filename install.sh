@@ -12,4 +12,9 @@ done
 command -v pip3 >/dev/null && pip3 install -q Pillow numpy PyYAML librosa soundfile && pip3 install -q -e "$HERE/skills/color-grading-skill" || echo "WARN: pip3 not found - colorist deps skipped"
 command -v npx >/dev/null && npx -y skills add remotion-dev/skills --agent claude-code || echo "skip remotion (no npx)"
 for t in ffmpeg ffprobe python3; do command -v $t >/dev/null || echo "WARN: $t not found"; done
+if [[ "${1:-}" == "--sounddirector" ]]; then
+  sd=~/.claude/SoundDirector
+  [[ -d "$sd" ]] || git clone --depth 1 https://github.com/ai-infra-academy/SoundDirector "$sd"
+  for d in "$sd"/.claude/skills/*/; do n=$(basename "$d"); rm -rf ~/.claude/skills/"$n"; ln -s "$d" ~/.claude/skills/"$n"; echo "skill   $n (SoundDirector)"; done
+fi
 echo "done — restart Claude Code"

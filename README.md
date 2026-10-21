@@ -14,6 +14,7 @@ skills/
   video-editing-skill/   trim, jump cut, caption 3 สไตล์ (6missedcalls)
   whisper-transcription/ ถอดเสียง → srt/vtt (guia-matthieu/clawfu-skills)
   video-production/      shot list, storyboard, script template (travisjneuman)
+  sfx-sources/           ค้น+โหลด SFX ฟรีจาก Mixkit/Pixabay/Kenney/Freesound ไม่ต้องมี key (sxhzju)
   color-grade-ai/        วิเคราะห์เฟรม, shot matching → .cube LUT (isaacrowntree)
   color-grading-skill/   HDR→SDR, apply LUT, primary correction แบบ typed (kajisho5)
 agents/
@@ -33,6 +34,7 @@ Remotion skills (`remotion-dev/skills`) ไม่ได้ vendor ไว้เ�
 
 ต้องมี: FFmpeg + ffprobe, Python 3.10+, Node 18+
 สำหรับ `music-supervisor` เพิ่ม: `pip install librosa soundfile numpy` และคลังเพลงส่วนตัวที่ `D:\music-library` (โหลดจาก YouTube Audio Library / Pixabay) — รัน `python skills\music-supervisor\scripts\catalog_music.py D:\music-library` ครั้งแรก
+ตัวเลือก: SoundDirector (คลัง offline 180 SFX + 80 เพลง, 220 MB, license ไฟล์เสียงไม่ระบุ — ใช้ส่วนตัว) ติดตั้งด้วย `install.ps1 -SoundDirector` หรือ `./install.sh --sounddirector`
 สำหรับ agent `colorist` เพิ่ม: `pip install Pillow numpy PyYAML` และ Ruby 2.7+ (เฉพาะถ้าจะสร้าง preset LUT); `pip install -e skills/color-grading-skill`
 สำหรับ agent `cg` เพิ่ม: Blender 4.2+ (ทดสอบบน 5.2 LTS), `uv`, Blender MCP (`uvx mcp-for-blender install-addon` แล้ว `claude mcp add --scope user blender -- uvx mcp-for-blender`) และ skill `animation-direction` (clone จาก DisturbedMediaGroup/claude-animation-skill) + plugin `3d-design` (`claude plugin marketplace add https://github.com/DavinciDreams/Agent-Team-Plugins` แล้ว `claude plugin install 3d-design@atlas-agents` — README ต้นทางเขียน `atlas-agents/plugins` ซึ่งไม่มีอยู่จริง)
 
