@@ -18,6 +18,7 @@ agents/
   editor.md              shotlist → EDL → preview
   subtitler.md           whisper ไทย + cleanup
   graphics.md            Remotion / PNG overlay ตาม graphics-brief.md
+  cg.md                  3D ใน Blender ผ่าน Blender MCP → .mov alpha
   upstream-agent-video-producer.md  ตัวอย่าง subagent จาก travisjneuman
 install.sh / install.ps1 ติดตั้งลง ~/.claude/skills และ ~/.claude/agents
 ```
@@ -27,6 +28,7 @@ Remotion skills (`remotion-dev/skills`) ไม่ได้ vendor ไว้เ�
 ## ติดตั้ง
 
 ต้องมี: FFmpeg + ffprobe, Python 3.10+, Node 18+
+สำหรับ agent `cg` เพิ่ม: Blender 4.2+ (ทดสอบบน 5.2 LTS), `uv`, Blender MCP (`uvx mcp-for-blender install-addon` แล้ว `claude mcp add --scope user blender -- uvx mcp-for-blender`) และ skill `animation-direction` (clone จาก DisturbedMediaGroup/claude-animation-skill) + plugin `3d-design`
 
 ```bash
 git clone https://github.com/meatasit/video-skills

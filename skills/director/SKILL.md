@@ -1,6 +1,6 @@
 ---
 name: director
-description: ผู้กำกับ (orchestrator) สำหรับตัดคลิปท่องเที่ยวจาก footage ดิบ — รับ brief, สั่ง sub-agent ตามบทบาท (ingest, editor, subtitler, graphics), คุม approval gate และรวม EDL ให้เป็นคลิปสุดท้าย Use when the user says "ตัดคลิปทริป", "ทำวิดีโอจาก footage", "เริ่มโปรเจกต์วิดีโอ", or invokes /director.
+description: ผู้กำกับ (orchestrator) สำหรับตัดคลิปท่องเที่ยวจาก footage ดิบ — รับ brief, สั่ง sub-agent ตามบทบาท (ingest, editor, subtitler, graphics, cg), คุม approval gate และรวม EDL ให้เป็นคลิปสุดท้าย Use when the user says "ตัดคลิปทริป", "ทำวิดีโอจาก footage", "เริ่มโปรเจกต์วิดีโอ", or invokes /director.
 ---
 
 # Director — ผู้กำกับคลิปท่องเที่ยว
@@ -55,7 +55,8 @@ projects/<trip>/
 มอบ `agents/subtitler.md` → `subs/<trip>.srt` ภาษาไทย ตรวจชื่อสถานที่ด้วยตัวเอง
 
 ### 5. Graphics → `graphics-brief.md` → `graphics/`
-ผู้กำกับเขียน brief: รายการกราฟิก (title card, lower-third, map, end card) + timecode + ข้อความจริง
+ผู้กำกับเขียน brief: รายการกราฟิก (title card, lower-third, map, end card) + timecode + ข้อความจริง — ระบุ `type: 2d` หรือ `type: 3d` ต่อชิ้น
+ชิ้น `type: 3d` (3D title, logo reveal, map 3D) มอบ `agents/cg.md` ทำใน Blender ผ่าน MCP (ต้องเปิด Blender ไว้ก่อน) ได้ `.mov` alpha กลับมาใน `graphics/`
 ให้ผู้ใช้เอา brief ไปทำใน Claude Design แล้ววางไฟล์กลับที่ `graphics/` — หรือมอบ `agents/graphics.md` สร้างด้วย Remotion ถ้ามี design system tokens แล้ว
 
 ### 6. Final render [GATE 3]
