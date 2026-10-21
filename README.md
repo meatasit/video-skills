@@ -28,7 +28,9 @@ Remotion skills (`remotion-dev/skills`) ไม่ได้ vendor ไว้เ�
 ## ติดตั้ง
 
 ต้องมี: FFmpeg + ffprobe, Python 3.10+, Node 18+
-สำหรับ agent `cg` เพิ่ม: Blender 4.2+ (ทดสอบบน 5.2 LTS), `uv`, Blender MCP (`uvx mcp-for-blender install-addon` แล้ว `claude mcp add --scope user blender -- uvx mcp-for-blender`) และ skill `animation-direction` (clone จาก DisturbedMediaGroup/claude-animation-skill) + plugin `3d-design`
+สำหรับ agent `cg` เพิ่ม: Blender 4.2+ (ทดสอบบน 5.2 LTS), `uv`, Blender MCP (`uvx mcp-for-blender install-addon` แล้ว `claude mcp add --scope user blender -- uvx mcp-for-blender`) และ skill `animation-direction` (clone จาก DisturbedMediaGroup/claude-animation-skill) + plugin `3d-design` (`claude plugin marketplace add https://github.com/DavinciDreams/Agent-Team-Plugins` แล้ว `claude plugin install 3d-design@atlas-agents` — README ต้นทางเขียน `atlas-agents/plugins` ซึ่งไม่มีอยู่จริง)
+
+Windows: ถ้า `.\install.ps1` ติด execution policy ให้รัน `powershell -ExecutionPolicy Bypass -File .\install.ps1`
 
 ```bash
 git clone https://github.com/meatasit/video-skills
